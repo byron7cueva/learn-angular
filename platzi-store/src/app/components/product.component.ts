@@ -15,7 +15,8 @@ import { Product } from '../models/product.model';
 // Anotacion para poder definir que es un componente
 @Component({
     selector: 'app-product', // El nombre del tag html
-    templateUrl: './product.component.html' // Url del template
+    templateUrl: './product.component.html', // Url del template
+    styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 

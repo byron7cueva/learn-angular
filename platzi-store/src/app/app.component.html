@@ -29,7 +29,11 @@
   </li>
 </ul>
 
-<div *ngFor="let product of products">
-  <!-- En la variable $event se pasa el valor el cual se emitio -->
-  <app-product [product]="product" (productClicked)="clickProduct($event)"></app-product>
+<!-- En la variable $event se pasa el valor el cual se emitio -->
+<div class="product-grid">
+  <app-product
+    *ngFor="let product of products"
+    [product]="product"
+    (productClicked)="clickProduct($event)">
+  </app-product>
 </div>
