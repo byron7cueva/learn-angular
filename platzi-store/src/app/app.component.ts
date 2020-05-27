@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
+// Este archivo se encarga de la logica del componente
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html', // Indica que archivo html va renderizar el componente
+  styleUrls: ['./app.component.scss'] // Nombre de los estilos asociado
 })
 export class AppComponent {
+  // Variables que puedo renderizar en el tamplate del componente (archivo html)
   title = 'platzi-store';
 }
