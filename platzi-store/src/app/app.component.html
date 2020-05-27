@@ -5,6 +5,14 @@
   Este es un div
 </div>
 
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'nicolas'">este es nicolas</p>
+  <p *ngSwitchCase="'byron'">este es byron</p>
+  <p *ngSwitchCase="'julian'">este es julian</p>
+  <p *ngSwitchCase="'camilo'">este es camilo</p>
+  <p *ngSwitchDeafult>No hay match</p>
+</div>
+
 <button (click)="addItem()">Add item</button>
 
 <ul>
@@ -22,7 +30,6 @@
 </ul>
 
 <div *ngFor="let product of products">
-  {{ product.title }}
-  <img [src]="product.image" [alt]="product.title" />
-  {{ product.price }}
+  <!-- En la variable $event se pasa el valor el cual se emitio -->
+  <app-product [product]="product" (productClicked)="clickProduct($event)"></app-product>
 </div>

@@ -37,7 +37,9 @@ Enlazando a un input
 
 Reliza un enlace de datos y cualquier cambio realizado en el input se va ver reflejado en la variable del componente.
 
-## ngIf
+## Estructuras de control
+
+### ngIf
 
 Es una directiva que permite hacer condicionales dentro de un template
 Se utiliza como *ngIf
@@ -50,7 +52,7 @@ Permite condicionar elementos dinamicamente en el template
 </div>
 ```
 
-## ngFor
+### ngFor
 
 Es una directiva, sirve para hacer una iteraccion de un array
 
@@ -61,3 +63,35 @@ Es una directiva, sirve para hacer una iteraccion de un array
   </li>
 </ul>
 ```
+
+### ngSwitch
+
+Controlamos varios if que tengamos anidados
+
+```html
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'nicolas'">este es nicolas</p>
+  <p *ngSwitchCase="'byron'">este es byron</p>
+  <p *ngSwitchCase="'julian'">este es julian</p>
+  <p *ngSwitchCase="'camilo'">este es camilo</p>
+</div>
+```
+
+## Componentes
+
+### Crear un componente
+
+Angular utiliza los decoradores para saber que rol va cumplir un elemento
+Los componentes tiene metadata
+
+### Input y Output
+Que es la manera de como de como podemos enviar datos a un componente y tambien como podemos recibir de el
+Se lo conoce como Property binding (Enviar por medio de una propiedad datos) y event binding (Recibir datos por medio de eventos)
+
+### Ciclo de vida
+constructor: Es lo primero que se ejecuta. Para crear el componente y asignarle la interfaz
+ngOnChange: Detecta el cambio cada vez que se cambia los datos en un input
+. Este se ejecuta varias veces que hay un cambio. Y poder ver el estado anteior y el estado nuevo.
+ngOnInit: Se ejecuta solo una vez, es cuando el componente esta listo en la interface grafica. Aqui es el mejor lugar hacer llamadas a componentes o a una rest API.
+ngDoCheck: Detecta cuando los elementos hijos del componente son creados y puestos en la interface.
+ngOnDestroy: Detecta cuando el elemento es quitado de la interface.
