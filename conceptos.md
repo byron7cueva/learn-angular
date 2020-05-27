@@ -43,3 +43,21 @@ Es una directiva que permite hacer condicionales dentro de un template
 Se utiliza como *ngIf
 Permite mostrar ciertos elementos  de un template de forma dinamica, a partir de una variable definida en el componente o una condicional en nuestro template
 Permite condicionar elementos dinamicamente en el template
+
+```html
+<div *ngIf="title === 'byron'">
+  Este es un div
+</div>
+```
+
+## ngFor
+
+Es una directiva, sirve para hacer una iteraccion de un array
+
+```html
+<ul>
+  <li *ngFor="let item of items; index as i">
+    {{item}} {{i}}
+  </li>
+</ul>
+```

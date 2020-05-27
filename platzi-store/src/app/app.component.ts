@@ -9,4 +9,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   // Variables que puedo renderizar en el tamplate del componente (archivo html)
   title = 'platzi-store';
+  items = ['byron', 'nicolas', 'julian'];
+
+  addItem() {
+    this.items.push('nuevo item');
+  }
+
+  deleteItem(index: number) {
+    this.items.splice(index, 1);
+  }
 }
