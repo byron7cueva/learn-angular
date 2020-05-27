@@ -42,3 +42,25 @@ ng build --prod
 
 Genera una carpeta distribution en donde tiene todos los assets de la aplicacion
 
+## Generadores
+
+Permite generar codigo automaticamente
+
+Generando un componente
+
+```bash
+ng g c nombre_componente
+```
+
+ng lint
+Nos ayuda a encontrar errores en nuestro codigo
+Nos ayuda a validar el estilo de codigo
+```bash
+ng lint
+```
+
+## Generar pipe
+
+```bash
+ng g p nombre_pipe
+```

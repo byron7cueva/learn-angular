@@ -30,6 +30,8 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
     // Se lo puede inicializar con un valor inicial = new EventEmitter('valor');
     @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
+    today = new Date();
+
     constructor() {
         console.log('1. Constructor');
     }

@@ -12,6 +12,7 @@ export class AppComponent {
   // Variables que puedo renderizar en el tamplate del componente (archivo html)
   title = 'platzi-store';
   items = ['byron', 'nicolas', 'julian'];
+  power = 10;
   products: Product[] = [
     {
       id: '1',

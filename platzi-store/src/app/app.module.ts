@@ -5,13 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ExponentialPipe } from './pipes/exponential.pipe';
 
 // Para que angular reconozca al componente se debe agregar en declarations
 // el componente
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent // Agregando el componente
+    ProductComponent,
+    CartComponent,
+    ExponentialPipe // Agregando el componente
   ],
   imports: [
     BrowserModule,
