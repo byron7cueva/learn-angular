@@ -23,11 +23,30 @@ export class ProductDetailComponent implements OnInit {
     // Para escuchar los cambios que existan en los parametros
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
-      // HTTPClient utiliza el patron Observable por lo cual se debe suscribir
-      this.produtcsService.getProduct(id)
+      this.fetchProduct(id);
+    });
+  }
+
+  fetchProduct(id: string) {
+    // HTTPClient utiliza el patron Observable por lo cual se debe suscribir
+    this.produtcsService.getProduct(id)
       .subscribe(product => {
         this.product = product;
       });
+  }
+
+  createProduct() {
+    const newProduct: Product = {
+      id: '22',
+      title: 'Nuevo desde angular',
+      image: 'assets/images/banner-1.jpg',
+      price: 3000,
+      description: 'Nuevo producto'
+    };
+
+    this.produtcsService.createProduct(newProduct)
+    .subscribe(product => {
+      console.log(product);
     });
   }
 
