@@ -12,6 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { BannerComponent } from './banner/banner.component';
 
 // Para que angular reconozca al componente se debe agregar en declarations
 // el componente
@@ -25,7 +28,10 @@ import { DemoComponent } from './demo/demo.component';
     HomeComponent,
     ProductsComponent,
     ContactComponent,
-    DemoComponent // Agregando el componente
+    DemoComponent,
+    HeaderComponent,
+    FooterComponent,
+    BannerComponent // Agregando el componente
   ],
   imports: [
     BrowserModule,
