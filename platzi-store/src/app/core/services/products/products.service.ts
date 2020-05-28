@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+// Importando el cliente para hacer peticiones
+import { HttpClient } from '@angular/common/http';
 
 import { Product } from '../../../models/product.model';
 
@@ -7,58 +9,16 @@ import { Product } from '../../../models/product.model';
 })
 export class ProductsService {
 
-  products: Product[] = [
-    {
-      id: '1',
-      image: 'assets/images/camiseta.png',
-      title: 'Camiseta',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '2',
-      image: 'assets/images/hoodie.png',
-      title: 'Hoodie',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '3',
-      image: 'assets/images/mug.png',
-      title: 'Mug',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '4',
-      image: 'assets/images/pin.png',
-      title: 'Pin',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '5',
-      image: 'assets/images/stickers1.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '6',
-      image: 'assets/images/stickers2.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    }
-  ];
-
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   getAllProducts() {
-    return this.products;
+    // Se puede indicar el tipo de dato que deseamos que nos retorne
+    return this.httpClient.get<Product[]>('https://platzi-store.herokuapp.com/products/');
   }
 
   getProduct(id: string) {
-    return this.products.find(product => product.id === id);
+    return this.httpClient.get<Product>(`https://platzi-store.herokuapp.com/products/${id}`);
   }
 }

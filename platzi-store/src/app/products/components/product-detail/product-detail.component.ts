@@ -23,7 +23,11 @@ export class ProductDetailComponent implements OnInit {
     // Para escuchar los cambios que existan en los parametros
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
-      this.product = this.produtcsService.getProduct(id);
+      // Utilizan el patron Observable por lo cual se debe suscribir
+      this.produtcsService.getProduct(id)
+      .subscribe(product => {
+        this.product = product;
+      });
     });
   }
 

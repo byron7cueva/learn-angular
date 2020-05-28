@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+// El siguiente modulo se lo debe importar para hacer consultar a un API Rest
+import { HttpClientModule } from '@angular/common/http';
 
 import { ProductsService } from './services/products/products.service';
 
@@ -14,7 +16,8 @@ import { ProductsService } from './services/products/products.service';
   declarations: [],
   // Aca se agregan los modulos
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   // Aca se agregan los servicios
   providers: [
