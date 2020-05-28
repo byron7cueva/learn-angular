@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BannerComponent } from './banner/banner.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { LayoutComponent } from './layout/layout.component';
 
 // Para que angular reconozca al componente se debe agregar en declarations
 // el componente
@@ -35,7 +36,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     FooterComponent,
     BannerComponent,
     PageNotFoundComponent,
-    ProductDetailComponent // Agregando el componente
+    ProductDetailComponent,
+    LayoutComponent // Agregando el componente
   ],
   imports: [
     BrowserModule,
