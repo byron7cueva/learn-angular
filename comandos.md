@@ -90,3 +90,15 @@ ng g m nombre-modulo
 ng g g nombre-guardian
 
 ```
+
+## Agregando angular material
+
+```bash
+ng add @angular/material
+```
+
+## Generar un modulo con el routing a la vez
+
+```bash
+ng g m nombre-modulo --routing
+```

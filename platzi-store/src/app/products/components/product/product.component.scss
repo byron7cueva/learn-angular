@@ -1,11 +1,22 @@
 // :host es el elemento padre que cea angular
-:host {
+/* :host {
     border: 1px solid black;
     margin: 2px;
     border-radius: 5px;
     display: block;
-}
+}*/
 
-img {
-    max-width: 100%;
+.crop-image {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+    }
 }
