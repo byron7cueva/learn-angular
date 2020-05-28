@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
@@ -25,11 +24,12 @@ const routes: Routes = [
       },
       {
         path: 'home', // Es la url
-        component: HomeComponent // Se debe enlazar un componente
+        // Cargando un modulo
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'products',
-        component: ProductsComponent
+        component: ProductsComponent // Se debe enlazar un componente
       },
       {
         path: 'products/:id', // Ruta para recibir parametros dinamicos
@@ -52,7 +52,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    // La precarga del resto de modulos lo va ser el navegador si este ya no se encuentra ocupado
+    preloadingStrategy: PreloadAllModules // Indicando una estrategia de pregarga de modulos
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
