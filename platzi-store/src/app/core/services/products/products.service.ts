@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Product } from '../../../models/product.model';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,10 @@ export class ProductsService {
 
   getAllProducts() {
     // Se puede indicar el tipo de dato que deseamos que nos retorne
-    return this.httpClient.get<Product[]>('https://platzi-store.herokuapp.com/products/');
+    return this.httpClient.get<Product[]>(`${environment.url_api}/products/`);
   }
 
   getProduct(id: string) {
-    return this.httpClient.get<Product>(`https://platzi-store.herokuapp.com/products/${id}`);
+    return this.httpClient.get<Product>(`${environment.url_api}/products/${id}`);
   }
 }
