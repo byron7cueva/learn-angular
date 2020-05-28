@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material/material.module';
 
 // Este modulo se utiliza para agrupar componentes que se comparten en la aplicacion
 // Pero para utilizarlo este debe ser importado
@@ -25,7 +26,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   // Explicitamente se debe indicar que componentes van a ser exportados
   // para que otro modulo los pueda utilizar
