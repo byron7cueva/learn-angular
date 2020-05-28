@@ -70,3 +70,10 @@ ng g p nombre_pipe
 ```bash
 ng g d nombre
 ```
+
+## Generar servicios
+
+```bash
+ng g s nombre-servicio
+
+```
