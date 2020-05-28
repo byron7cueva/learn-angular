@@ -102,3 +102,25 @@ ng add @angular/material
 ```bash
 ng g m nombre-modulo --routing
 ```
+
+## Agregar angular cdk
+
+```bash
+ng add @angular/cdk
+
+```
+
+## Generar componentes con angular schematic
+
+### Generar un formulario
+
+```bash
+ng g @angular/material:address-form nombre-componente
+ng g @angular/material:address-form admin/components/product-form
+```
+
+### Generar una navegacions
+
+```bash
+ng g @angular/material:nav nombre_componente
+```

@@ -50,6 +50,11 @@ const routes: Routes = [
     component: DemoComponent
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  // La siguiente ruta siempre debe ir al ultimo
+  {
     path: '**', // Significa que no hubo match con la ruta
     component: PageNotFoundComponent
   }
