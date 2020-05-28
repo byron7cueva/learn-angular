@@ -110,3 +110,9 @@ Un modulo lo que hace es agrupar varios de los artefactos de angular, como servi
 
 Modulo core: guarda todos los servicios o componentes que vamos a utilizar en todos los otros modulos. Esto genera una sola referencia de el. Siguiendo uno de los principios solid.
 Modulo shared: Se puede tener servicios y componentes compartidos.
+
+## Guardianes
+
+Permiten saber quien puede entrar o no a una ruta en especifico
+
+Puedoo activarlo (canActivate): Indica si muestra o no una ruta

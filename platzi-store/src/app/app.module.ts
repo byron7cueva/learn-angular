@@ -3,18 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+
 import { AppComponent } from './app.component';
-import { ProductComponent } from './components/product.component';
-import { CartComponent } from './components/cart/cart.component';
-import { ExponentialPipe } from './pipes/exponential.pipe';
-import { HighlightDirective } from './directives/highlight.directive';
-import { ProductsComponent } from './products/products.component';
-import { ContactComponent } from './contact/contact.component';
+import { CartComponent } from './cart/cart.component';
 import { DemoComponent } from './demo/demo.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { LayoutComponent } from './layout/layout.component';
 
 // Para que angular reconozca al componente se debe agregar en declarations
@@ -22,23 +17,17 @@ import { LayoutComponent } from './layout/layout.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
     CartComponent,
-    ExponentialPipe,
-    HighlightDirective,
-    ProductsComponent,
-    ContactComponent,
     DemoComponent,
-    HeaderComponent,
-    FooterComponent,
     PageNotFoundComponent,
-    ProductDetailComponent,
     LayoutComponent // Agregando el componente
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

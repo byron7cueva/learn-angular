@@ -77,3 +77,16 @@ ng g d nombre
 ng g s nombre-servicio
 
 ```
+
+## Generar un modulo
+
+```bash
+ng g m nombre-modulo
+```
+
+## Generar guardianes
+
+```bash
+ng g g nombre-guardian
+
+```

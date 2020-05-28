@@ -10,7 +10,7 @@ import {
     OnDestroy
 } from '@angular/core';
 
-import { Product } from '../models/product.model';
+import { Product } from '../../../models/product.model';
 
 // Anotacion para poder definir que es un componente
 @Component({

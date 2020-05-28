@@ -1,13 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import { Product } from '../models/product.model';
+import { Product } from '../../../models/product.model';
 
-@Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class ProductsComponent implements OnInit {
+export class ProductsService {
 
   products: Product[] = [
     {
@@ -56,11 +54,11 @@ export class ProductsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  getAllProducts() {
+    return this.products;
   }
 
-  clickProduct(id: number) {
-    console.log('product', id);
+  getProduct(id: string) {
+    return this.products.find(product => product.id === id);
   }
-
 }
