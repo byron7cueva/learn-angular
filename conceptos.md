@@ -95,3 +95,18 @@ ngOnChange: Detecta el cambio cada vez que se cambia los datos en un input
 ngOnInit: Se ejecuta solo una vez, es cuando el componente esta listo en la interface grafica. Aqui es el mejor lugar hacer llamadas a componentes o a una rest API.
 ngDoCheck: Detecta cuando los elementos hijos del componente son creados y puestos en la interface.
 ngOnDestroy: Detecta cuando el elemento es quitado de la interface.
+
+## Pipes
+
+Funcionan como una tuberia donde ingresan datos de un tipo y puedes entregar otro valor, asi como tambien se puede conactenar varios pipes
+
+## Directivas
+Sierven para modificar el DOM dinamicamente de un componente especifico
+Se debe utilizar para por ejemplo el comportamiento de tipo autocompletar
+
+## Modulos y rutas
+Nos permiten abstraer y dividir menjor por dominio la aplicacion
+Un modulo lo que hace es agrupar varios de los artefactos de angular, como servicios, componentes y directivas.
+
+Modulo core: guarda todos los servicios o componentes que vamos a utilizar en todos los otros modulos. Esto genera una sola referencia de el. Siguiendo uno de los principios solid.
+Modulo shared: Se puede tener servicios y componentes compartidos.

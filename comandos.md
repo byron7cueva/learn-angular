@@ -59,8 +59,14 @@ Nos ayuda a validar el estilo de codigo
 ng lint
 ```
 
-## Generar pipe
+## Generar un pipe
 
 ```bash
 ng g p nombre_pipe
+```
+
+## Generar una directiva
+
+```bash
+ng g d nombre
 ```
