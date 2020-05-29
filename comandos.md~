@@ -129,16 +129,3 @@ ng g @angular/material:nav nombre_componente
 ```bash
 ng build --prod
 ```
-
-## Construir en un ambiente customizado
-
-```bash
-ng serve -c=nombre_ambiente
-
-```
-
-## Construir una version en un ambiente customizado
-
-```bash
-ng build -c=stag
-```

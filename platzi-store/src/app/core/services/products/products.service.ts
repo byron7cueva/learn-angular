@@ -28,4 +28,16 @@ export class ProductsService {
   createProduct(product: Product) {
     return this.httpClient.post(URL_API, product);
   }
+
+  updateProduct(id: string, changes: Partial<Product>) {
+    // Con partial podemos indicar que solo queremos enviar una parte del producto
+    // haciendo que no sea requerido todas sus propiedades
+    return this.httpClient.put(`${URL_API}${id}`, changes);
+  }
+
+  deleteProduct(id: string) {
+    // Algunas API's escogen devolver el objeto que elimino
+    // Otras solo devuelven un true o un false
+    return this.httpClient.delete(`${URL_API}${id}`);
+  }
 }
