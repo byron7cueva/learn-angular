@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
       .then(() => {
         // Redireccionando a Login
         this.router.navigate(['/auth/login']);
-      })
+      });
     }
   }
 
