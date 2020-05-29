@@ -1,4 +1,4 @@
-<a mat-raised-button routerLink="create">Crear un nuevao producto</a>
+<a mat-raised-button routerLink="create">Crear un nuevo producto</a>
 <table mat-table [dataSource]="products" class="mat-elevation-z8 products-table">
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -18,7 +18,10 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let product">
-            <button mat-button>Editar</button>
+            <!--
+                Cuanso se desea enviar parametros se debe utilizar el router link como un array
+            -->
+            <a mat-raised-button [routerLink]="['edit',product.id]">Editar</a>
             <button mat-raised-button color="warn" (click)="deleteProduct(product.id)">Eliminar</button>
         </td>
     </ng-container>
