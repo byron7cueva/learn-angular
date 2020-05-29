@@ -25,6 +25,13 @@
                     <mat-form-field>
                         <input placeholder="Price" matInput type="number" formControlName="price" />
                     </mat-form-field>
+                    <!--
+                        dirty para saber si el campo ya fue utilizado por el usuario
+                    -->
+                    <div *ngIf="priceField.errors && priceField.dirty">
+                        <p *ngIf="priceField.hasError('price_invalid')">No te debes pasar de 10000</p>
+                        <p *ngIf="priceField.hasError('required')">Este campo no es requerido</p>
+                    </div>
                 </div>
             </div>
         
@@ -37,7 +44,7 @@
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button type="submit">Guardar</button>
+            <button [disabled]="form.invalid" mat-raised-button type="submit">Guardar</button>
         </mat-card-actions>
     </mat-card>
 </form>
