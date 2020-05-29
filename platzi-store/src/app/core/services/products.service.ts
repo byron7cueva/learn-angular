@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 // Importando el cliente para hacer peticiones
 import { HttpClient } from '@angular/common/http';
 
-import { Product } from '../../../models/product.model';
-import { environment } from '../../../../environments/environment';
+import { Product } from '../models/product.model';
+import { environment } from '../../../environments/environment';
 
 const URL_API = `${environment.url_api}/products/`;
 

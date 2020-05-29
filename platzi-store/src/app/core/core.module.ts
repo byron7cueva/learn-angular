@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 // El siguiente modulo se lo debe importar para hacer consultar a un API Rest
 import { HttpClientModule } from '@angular/common/http';
 
-import { ProductsService } from './services/products/products.service';
+import { ProductsService } from './services/products.service';
 
 // Este modulo se utiliza si se va igualmente a compartir en toda la apliacacion
 // Si y solo si se genera una referencia unica

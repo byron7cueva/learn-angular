@@ -13,8 +13,18 @@
             </nav>
             <!--
                 Agregando iconos
+                <a mat-raised-button [matBadge]="total" matBadgeColor="accent">
+                    <mat-icon>shopping_cart</mat-icon>
+                Carrito
+            </a>
             -->
-            <a mat-raised-button [matBadge]="total" matBadgeColor="accent">
+            <!-- 
+                Suscribiendose a un pipe
+                La suscripcion se realiza de form automatica
+                Y automaticamente cuando ya no se este utilizando se va a desuscribir
+                Evitando flujos o perdidas de memoria
+            -->
+            <a mat-raised-button [matBadge]="total$ | async" matBadgeColor="accent" routerLink="/order">
                 <mat-icon>shopping_cart</mat-icon>
                 Carrito
             </a>

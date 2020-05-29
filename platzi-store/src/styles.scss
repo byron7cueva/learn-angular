@@ -18,6 +18,10 @@
     margin-left: auto;
 }
 
+.image {
+    max-width: 100%;
+}
+
 @media (min-width: 576px) {
     .product-grid {
         grid-template-columns: repeat(3, 1fr);
