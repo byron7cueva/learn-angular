@@ -116,3 +116,10 @@ Modulo shared: Se puede tener servicios y componentes compartidos.
 Permiten saber quien puede entrar o no a una ruta en especifico
 
 Puedoo activarlo (canActivate): Indica si muestra o no una ruta
+
+## Formularios Reactivos
+
+En un NgModel tienen un enlace de datos pero no se puede tener el control total, como validar datos, hacer pruebas unitarias.
+
+Pero con los formularios reactivos tenemos observables para poder mirar que datos estan mutando, colocar validaciones, pruebas unitarias y toda la logica va estar dentro del controlador.
+

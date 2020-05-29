@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Este modulo se utiliza para agrupar componentes que se comparten en la aplicacion
 // Pero para utilizarlo este debe ser importado
@@ -29,7 +30,8 @@ import { CartComponent } from './components/cart/cart.component';
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   // Explicitamente se debe indicar que componentes van a ser exportados
   // para que otro modulo los pueda utilizar

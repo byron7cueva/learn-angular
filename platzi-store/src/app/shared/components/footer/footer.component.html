@@ -1,1 +1,35 @@
-<p>footer works!</p>
+<footer>
+    <div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="box">
+                    <h3>Productos</h3>
+                    <ul>
+                        <li><a routerLink="/products">Nuestros productos</a></li>
+                        <li><a routerLink="/store">En oferta</a></li>
+                        <li><a routerLink="/store">Ultimos productos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="box">
+                    <h3>Acerca de PlatziStore</h3>
+                    <ul>
+                        <li><a routerLink="/about-us">Sobre nosotros</a></li>
+                        <li><a routerLink="/store">Nuestras tiendas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="box">
+                    <h3>Contacto</h3>
+                    <mat-form-field>
+                        <input [formControl]="emailField" type="email" matInput placeholder="Digite su correo"/>
+                    </mat-form-field>
+                    <button mat-raised-button [disabled]="emailField.invalid" (click)="sendMail()">Enviar</button>
+                    <p *ngIf="emailField.invalid">El campo no es valido</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
