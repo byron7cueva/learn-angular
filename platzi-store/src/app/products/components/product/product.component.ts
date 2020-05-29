@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 
 import { Product } from '../../../models/product.model';
+import { CartService } from '../../../core/services/cart.service';
 
 // Anotacion para poder definir que es un componente
 @Component({
@@ -32,7 +33,9 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 
     today = new Date();
 
-    constructor() {
+    constructor(
+        private cartService: CartService
+    ) {
         console.log('1. Constructor');
     }
 
@@ -64,6 +67,7 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 
         // Emitiendo las salida
         // Lo que se envia dentro de emit, se puede recibir a traves de la variable que genera angular llamada $event
-        this.productClicked.emit(this.product.id);
+        this.cartService.addCart(this.product);
+        // this.productClicked.emit(this.product.id);
     }
 }

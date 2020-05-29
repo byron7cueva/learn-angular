@@ -123,3 +123,7 @@ En un NgModel tienen un enlace de datos pero no se puede tener el control total,
 
 Pero con los formularios reactivos tenemos observables para poder mirar que datos estan mutando, colocar validaciones, pruebas unitarias y toda la logica va estar dentro del controlador.
 
+## Programacion reactiva
+
+Es la forma de controlar flujos de datos efectivamente en los componentes
+de angular
