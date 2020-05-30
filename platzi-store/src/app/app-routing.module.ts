@@ -3,7 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
-import { AdminGuard } from './guards/admin/admin.guard';
+import { AdminGuard } from './core/guards/admin.guard';
 
 // Rutas
 const routes: Routes = [
@@ -39,7 +39,6 @@ const routes: Routes = [
       {
         path: 'contact',
         // El guardian se puede utilizar en varias rutas
-        canActivate: [AdminGuard], // Validando el acceso
         loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
       },
       {
@@ -54,6 +53,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [AdminGuard], // Validando el acceso
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
