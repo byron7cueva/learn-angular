@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 import { ProductsService } from '../../../core/services/products.service';
 import { MyValidators } from '../../../utils/validators';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-product',
@@ -13,11 +16,13 @@ import { MyValidators } from '../../../utils/validators';
 export class FormProductComponent implements OnInit {
 
   form: FormGroup;
+  image$: Observable<any>;
 
   constructor(
     private formBuilder: FormBuilder,
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private afs: AngularFireStorage
   ) {
     // Se debe llamar desde aca porque se utiliza para construir el formulario
     this.buildForm();
@@ -52,6 +57,28 @@ export class FormProductComponent implements OnInit {
         this.router.navigate(['./admin/products']);
       });
     }
+  }
+
+  uploadFile(event) {
+    // Obteniendo el archivo
+    const file = event.target.files[0];
+    // Necesita un directorio
+    const name = 'image.jpg';
+    // La referencia del archivo
+    const fileRef = this.afs.ref(name);
+    // Se necesita de una tarea
+    const task = this.afs.upload(name, file);
+    // Es un observable
+    task.snapshotChanges()
+    .pipe(
+      finalize(() => {
+        this.image$ = fileRef.getDownloadURL();
+        this.image$.subscribe(url => {
+          this.form.get('image').setValue(url);
+        });
+      })
+    )
+    .subscribe();
   }
 
 }

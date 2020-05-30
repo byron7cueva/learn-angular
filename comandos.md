@@ -142,3 +142,9 @@ ng serve -c=nombre_ambiente
 ```bash
 ng build -c=stag
 ```
+
+## Subir a produccion con firebase hosting
+
+```bash
+firebase init
+```
