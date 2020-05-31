@@ -129,3 +129,4 @@ Es la forma de controlar flujos de datos efectivamente en los componentes
 de angular
 
 Angular tiene una forma de procesar los flujo de datos, y a eso se lo llama pipes, cualquier operacion que quiera hacer con un flujo de datos que se sea reactivo lo puedo preprocesar con un pipe y agregar 
+
