@@ -130,3 +130,147 @@ de angular
 
 Angular tiene una forma de procesar los flujo de datos, y a eso se lo llama pipes, cualquier operacion que quiera hacer con un flujo de datos que se sea reactivo lo puedo preprocesar con un pipe y agregar 
 
+### Curso Profesional
+
+## Estructura del proyecto
+
+Se utiliza el concepto folder by features. Que es por cada caracteristica de la apicacion se crea un componente
+donde se encuentran sus componentes, directivas de la aplicación.
+
+## Migracion de angular 7 a 8
+
+Herramienta: update.angular.io. Esta Herramienta permite migrar desde una version en la cual
+se encuentra a una version mas actual de angular.
+
+```
+ng update
+```
+
+Indica las cosas que estan desactualizadas como podemos actualizarlo
+
+Actualizando la linea de comandos y el core
+```
+ng update @angular/cli @angular/core
+```
+
+Angular actualiza algunos archivos de configuracion al momento de actualizar como:
+tslint.json
+package.json
+src/polyfills.ts
+tsconfig.json
+src/tsconfig.app.json
+src/tsconfig.spec.json
+src/app/app-routing.module.ts
+
+# Ivy Renderer
+
+Es el nuevo motor de render de angular
+Aplicaciones mas pequeñas ya que reduce el buldle de la aplicacion
+Hace las compilaciones sean mucho mas rapidas y que el debugin sea mucho mas controlado
+o exacto
+
+v2 Renderer
+v4 Renderer2
+v8 Ivy
+Fecheckable: Lo que hace es eliminacion de codigo para que empaquetadores como: webpack, rollar,
+parts; detecten el código que no estamos utilizando y lo eliminen.
+Elimina elementos de angular que no se este utilizando
+
+Habilitar ivy:
+```bash
+ng new nombre_proyecto --enable-ivy
+```
+
+En angular 9, ya esta habilitado por defecto.
+
+En proyectos anteriores a angular 9, ya creados se debe habilitar de la siguiente manera
+
+{
+	"compilerOptions": { ... },
+	"angularCompilerOptions": {
+		"enableIvy": true
+	 }
+	}
+ }
+}
+
+## Diferencial Loading
+
+Bajar el peso de la aplicacion dependiendo de la version, se ahorra el peso en pollyfils
+Detecta si el navegador es moderno o no para cargar los polifills
+Angular va generar dos versiones una para ECMAScript5 y otra de ECMAScript2015 para navegadores
+mas modernos
+
+## Dynamic Imports
+
+Un feature introducido en angular 8, pero sin embargo. Esto viene desde javascript como la
+la forma de precargar modulos directamente.
+
+## Cli builders
+
+Son aquellos que nos habilitan extender la funcionalidades del cliente de comandos de angular
+sobre todo correr tareas y correrlas a nuestro modo
+Angular divide en tres intenciones los comandos que ejecutamos:
+
+1 Hacer modificaciones o crear codigo como tal:
+ng new -> Permite crear un nuevo proyecto
+ng generate -> Permite generar componentes, directivas, servicios
+ng add -> Permite agregar una libreria y automatizar cualquier tipo de configuracion
+ng update
+
+2 Tareas simples
+
+ng help -> Obtener ayuda de la linea de comandos
+ng version -> Saber en que version esta
+ng doc -> Saber la documentacion
+
+3 Arquitect
+
+ng serve -> Crea todo el servidor de desarrollo
+ng build -> Compila la version para produccion y genera todos los assets para subir a un hosting de archivos estaticos
+ng test -> Correr pruebas
+ng lint -> Correr el linter
+
+Se la conoce como la api de angular, la cual abrio para poder hacer nuestras propias modificaciones
+como: Hacer nuestro propio servidor de desarrollo, hacer la construccion, test o linter a nuestra manera.
+Nosotros podemos extender oficialmente el API
+
+## Estructura de un proyecto
+### Ecalabilidad
+
+Desde las buenas practicas que angular propone para que el proyecto este organizado
+
+#### Patron LIFT
+
+Se encarga de definir 4 reglas basicas para organizar el proyecto:
+
+Locate: Se trata de que podamos localizar rapidamente un componente o un problema
+La regla es que no dividamos nuestro proyectio como tal en lo que hacen los artefactos como
+los componentes, sini mas bien por caracteristica de nuestra aplicacion
+
+Identify: Se trata de reconocer rapidament el rol que cumple un archivo. Este patron se cumple
+asignandole un apellido al archivo:
+Ejemplo:
+header:
+	header.directives.ts // Si este es una directiva
+	header.model.ts // Si este es un modelo
+	header.pipe.ts
+	header.service.ts
+
+Flat: Mantener la estructura del proyecto de forma plana. Es decir no muchos niveles, la mejor
+practica es tener maximo dos niveles y cada carpeta tener como maximo 7 archivos.
+
+Try dry: Intentar no repetir. Esto hace que la mantebilidad sea mucho mas facil.
+
+#### Smart and Dump Component
+
+Es un patron que ayuda a separar conceptos en componentes
+Dump Component: Un componente solo deberia encargarce de la parte visual e iteractiva de un
+componente hacia el usuario, y solo con input y output transmitimos esa informacion.
+Y si ese componente geneara alguna iteraccion lo transmitimos por medio de un output a
+su padre.
+Smart component: Lo que va hacer es fetch del dato que queramos mandar y lo envimos a ese
+Dump component por medio de los inputs. Son aquellos que hacen fech de datos o traen datos, para
+mandarcelos a los componentes, que solo se encargan de visualizarlos y encargarce de las
+visualizaciones.
+

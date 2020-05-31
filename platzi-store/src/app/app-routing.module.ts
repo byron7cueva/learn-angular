@@ -34,6 +34,11 @@ const routes: Routes = [
       },*/
       {
         path: 'products',
+        // Dynamic Loading
+        // loadChildren: './home/home.module#HomeModule' // Esta es la forma en como se cargaba dinamicamente un modulo antes de angular 8
+        // Si le le pasa una url dinamica vamos a perder habilidades de analisis estatico del codigo, como webpack o rollar, por lo cual
+        // no van hacer ninguna practica de obtimizacion a esos modulos
+        // La buena practica es utilizar dinamic imports pero no mandarle urls dinamicas. Se debe utilizar strings literales
         loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
       },
       {

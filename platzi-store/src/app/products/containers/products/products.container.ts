@@ -3,12 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../core/models/product.model';
 import { ProductsService } from '../../../core/services/products.service';
 
+// Este componente ya que solo se encarga de hacer fecth de datos se lo define como container
+
 @Component({
   selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  templateUrl: './products.container.html',
+  styleUrls: ['./products.container.scss']
 })
-export class ProductsComponent implements OnInit {
+// tslint:disable-next-line: component-class-suffix
+export class ProductsContainer implements OnInit {
 
   products: Product[] = [];
 

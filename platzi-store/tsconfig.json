@@ -7,10 +7,10 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "esnext", // Tambien esto debe estar en esnext para Diferencial loading
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2015", // Esta debe ser por defecto en Diferencial loading
     "lib": [
       "es2018",
       "dom"
