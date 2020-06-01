@@ -45,4 +45,14 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  loginApi() {
+    if (this.form.valid) {
+      const {email, password} = this.form.value;
+      this.authService.loginRestApi(email, password)
+      .subscribe(data => {
+        console.log(data);
+      });
+    }
+  }
+
 }

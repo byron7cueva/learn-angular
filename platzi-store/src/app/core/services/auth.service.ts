@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { HttpClient } from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
 
   constructor(
-    private af: AngularFireAuth
+    private af: AngularFireAuth,
+    private httpClient: HttpClient
   ) { }
 
   createUser(email: string, password: string) {
@@ -24,5 +27,12 @@ export class AuthService {
 
   hasUser() {
     return this.af.authState;
+  }
+
+  loginRestApi(email: string, password: string) {
+    return this.httpClient.post(`${environment.url_api}/auth`, {
+      email,
+      password
+    });
   }
 }
