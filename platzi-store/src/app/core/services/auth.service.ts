@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+
 import {environment} from '../../../environments/environment';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,8 @@ export class AuthService {
 
   constructor(
     private af: AngularFireAuth,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private tokenService: TokenService
   ) { }
 
   createUser(email: string, password: string) {
@@ -33,6 +37,13 @@ export class AuthService {
     return this.httpClient.post(`${environment.url_api}/auth`, {
       email,
       password
-    });
+    })
+    .pipe(
+      // tap Nos permite ejecutar una tarea antes de devolverla
+      tap((data: {token: string}) => {
+        const { token } = data;
+        this.tokenService.saveToken(token);
+      })
+    );
   }
 }

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // El siguiente modulo se lo debe importar para hacer consultar a un API Rest
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ProductsService } from './services/products.service';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 // Este modulo se utiliza si se va igualmente a compartir en toda la apliacacion
 // Si y solo si se genera una referencia unica
@@ -21,7 +22,12 @@ import { ProductsService } from './services/products.service';
   ],
   // Aca se agregan los servicios
   providers: [
-    ProductsService
+    ProductsService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ]
 })
 export class CoreModule { }

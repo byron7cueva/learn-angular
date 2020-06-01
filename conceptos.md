@@ -308,3 +308,21 @@ Permite configurar a TypeScript para crear alias a las rutas y utilizar rutas ma
 No debe existir un suscribe dentro de otro suscribe, se debe manejar en forma lineal
 
 Transformacion de datos no se debe realizar en el componente todo esto debe realizar el servicio como tal
+
+### Pruebas Unitarias
+
+## Karma
+Es un test runner de codigo abierto, donde el equipo de angular aporta mucho.
+Modo Headdlest sin interface grafica, para un servidor de integracion continua.
+
+## Jasmine
+Es un framework de testing, para describir y organizar las pruebas
+
+## Jest
+Es de facebook
+
+## Prottactor
+Con pruebas de interface grafica, prueba de punto a punto
+
+### Cypress
+Pruebas end to end
