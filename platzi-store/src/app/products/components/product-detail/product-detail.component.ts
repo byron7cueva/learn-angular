@@ -109,4 +109,11 @@ export class ProductDetailComponent implements OnInit {
     );
   }
 
+  getFile() {
+    this.userService.getFile()
+    .subscribe(content => {
+      console.log(content);
+    });
+  }
+
 }

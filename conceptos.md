@@ -305,5 +305,6 @@ Permite configurar a TypeScript para crear alias a las rutas y utilizar rutas ma
 
 ## HTTP Client
 
+No debe existir un suscribe dentro de otro suscribe, se debe manejar en forma lineal
 
-
+Transformacion de datos no se debe realizar en el componente todo esto debe realizar el servicio como tal
