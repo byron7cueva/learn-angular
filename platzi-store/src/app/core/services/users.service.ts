@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import * as Sentry from '@sentry/browser';
 
 import { User } from '../models/user.model';
 import { Observable, throwError } from 'rxjs';
@@ -32,6 +33,7 @@ export class UsersService {
 
   private handleError(error: HttpErrorResponse) {
     console.error(error);
+    Sentry.captureException(error);
     return throwError('ups algo paso mal');
   }
 }

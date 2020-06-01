@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import * as Sentry from '@sentry/browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '@shared/shared.module';
@@ -15,6 +16,12 @@ import { LayoutComponent } from './layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from './../environments/environment';
+
+if (environment.production) {
+  Sentry.init({
+    dsn: 'https://d08a2f6bbb264bbaba473966f51dd2a2@o401219.ingest.sentry.io/5260534'
+  });
+}
 
 // Para que angular reconozca al componente se debe agregar en declarations
 // el componente
