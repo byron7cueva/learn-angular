@@ -18,6 +18,7 @@ export class ProductsService {
 
   getAllProducts() {
     // Se puede indicar el tipo de dato que deseamos que nos retorne
+    // La peticion esta tipada
     return this.httpClient.get<Product[]>(URL_API);
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ProductsService } from '@core/services/products.service';
+import { UsersService } from '@core/services/users.service';
 import { Product } from '@core/models/product.model';
 
 // Los operators nos ayudan a manipular cualquier flujo de datos dentro de un observable
@@ -20,7 +21,8 @@ export class ProductDetailComponent implements OnInit {
   // Param es de tipado
   constructor(
     private route: ActivatedRoute,
-    private produtcsService: ProductsService
+    private produtcsService: ProductsService,
+    private userService: UsersService
   ) { }
 
   ngOnInit(): void {
@@ -50,13 +52,13 @@ export class ProductDetailComponent implements OnInit {
     );
   }
 
-  fetchProduct(id: string) {
+  /* fetchProduct(id: string) {
     // HTTPClient utiliza el patron Observable por lo cual se debe suscribir
     this.produtcsService.getProduct(id)
       .subscribe(product => {
         this.product = product;
       });
-  }
+  } */
 
   createProduct() {
     const newProduct: Product = {
@@ -93,6 +95,13 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(result => {
         console.log(result);
       });
+  }
+
+  getRandomUsers() {
+    this.userService.getRandomUsers()
+    .subscribe(users => {
+      console.log(users);
+    });
   }
 
 }
