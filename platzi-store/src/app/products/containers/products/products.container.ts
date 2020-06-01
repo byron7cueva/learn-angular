@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Product } from '../../../core/models/product.model';
-import { ProductsService } from '../../../core/services/products.service';
+// Short imports --> Referenciando al alias
+import { Product } from '@core/models/product.model';
+import { ProductsService } from '@core/services/products.service';
 
 // Este componente ya que solo se encarga de hacer fecth de datos se lo define como container
 

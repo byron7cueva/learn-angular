@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CartService } from '../../../core/services/cart.service';
+import { CartService } from '@core/services/cart.service';
 // Map se utiliza para transformar el valor que llega a uno nuevo
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';

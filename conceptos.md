@@ -274,3 +274,30 @@ Dump component por medio de los inputs. Son aquellos que hacen fech de datos o t
 mandarcelos a los componentes, que solo se encargan de visualizarlos y encargarce de las
 visualizaciones.
 
+Los container son los encargados de hacer fetch de la informacion
+Los componentes solo se utilizan para input y outputs y encargarse de renderizacion de datos
+y la iteraccion.
+
+
+## Manejo de estado
+
+Redux como patron de arquitectura de datos o como el controlador de estado de las aplicaciones
+JavaScript. Este nace desde facebook y por lo tanto es aplicado directamente a proyectos en react.
+Sin embargo se volvio transversal sin importar el framework.
+
+Es importante ya que Redux maneja la arquitectura de datos en un solo sentido.
+Cuando se maneja aplicaciones grander, con muchos conponetes, se pierde el que, como y cuando la data
+llego a ese punto. Este maneja un solo flujo de datos, manejando una sola fuente de la verdad llamada
+storage, en la cual siempre va estar disponible la data. Y cualquier cambio se notifica por medio de
+action, lo cual hace es describir la accion. Por lo cual si quiero eliminar, actalizar o cualquiera de
+estas acciones se lo hace atraves de una accion descriptiva. Y esta la procesa por medio de un reducer.
+Este patron es muy comun y lo que hace es que las aplicaciones de escalamiento funcionen mejor.
+Y el mantenimiento es mucho mas facil.
+No es bueno para aplicacines pequeñas ya que el boolerplate que se necesita es muy complejo. Sin embargo
+si la aplicacion empieza a mutar bastante y a manejar grander volumenes de datos o hay una cantidad grande de componentes
+Para esos entornos Redux es una buena opcion
+Librerias:
+NGRX: Redux y Rxjs
+Akita: Redux
+
+## Acortar las importaciones
