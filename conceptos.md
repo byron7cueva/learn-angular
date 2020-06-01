@@ -326,3 +326,60 @@ Con pruebas de interface grafica, prueba de punto a punto
 
 ### Cypress
 Pruebas end to end
+
+### Mock
+Es emular datos
+
+Cuando se realiza una prueba http, no se envia una peticion real sino mas bien se emula la respuesta.
+No es buena practica hacer las pruebas directamente con el API. Estas se debe realizar en las pruebas de integracion o end to end
+Aqui se revisa respuesto a una informacion si se esta comportando bien el metodo
+
+## El reporte coverage
+Es una medida porcentual que evalua cuanto del codigo ha sido ejecutado.
+Es una buena medida para saber que flujos nos faltan por probar y cuantos flujos han sido probados
+Es un buen indicador para saber si estamos cumpliendo con metrica de pruebas
+
+ng test --watch=false --codeCoverage=true
+
+
+## Docker
+Nos permite distribuir la aplicacion en un contenedor
+
+##Nginx
+Es un buen servidor de archivos estaticos
+
+Comandos
+Descargar una imagen de nginx liviana
+
+docker pull nginx:alpine
+
+Correr un contenerdor en base a esa imagen
+docker run -d -p 8080:80 nginx:alpine
+
+Verificar que contenedores se tiene corriendo con:
+docker ps
+
+Parar el conenedor
+docker stop cuatroPrimerosDigitosId
+
+Corriendo pero agregando un volumnen, este debe tener la ruta absoluta de la maquina $(pwd) Ruta actual tab
+docker run -d -p 8080::80 -v $(pwd)/dist/platzi-store-pro/:/usr/share/nginx/html nginx:alpine
+
+## Contruir con el Dockerfile, desde donde se esta
+docker build . -t platzi-store:latest
+
+Desplegar
+docker run -d -p 80:80 platzi-store:latest
+
+## Compilaciones enn Angular
+JUST IN TIME:
+Se utiliza en tiempo de desarrollo. Esta incluye el compilador de angular a nuestra aplicacion. Es por esta razon el navegador va interpretar la aplicacion
+
+AHEAD OF TIME: No trae el compilador de angular. Entrega el codigo precompilado. Esta se ejecuta en produccion. Y se demora mas.
+Fast JavaScript = Download, parse, compile, execute
+Beneficios:
+Performance: es mas rapido
+Request: Ahorra los request
+Size: No incluye el compilador de angular
+Error: Permite mas deteccion de errores de forma temprana
+Seguridad: Realiza ofuscacion del codigo
