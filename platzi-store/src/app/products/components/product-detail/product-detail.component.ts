@@ -3,13 +3,18 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ProductsService } from '@core/services/products.service';
 import { Product } from '@core/models/product.model';
 
+// Los operators nos ayudan a manipular cualquier flujo de datos dentro de un observable
+import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  product: Product;
+  // product: Product;
+  product$: Observable<Product>;
 
   // ActivedRoute es de inyeccion de dependencia
   // Param es de tipado
@@ -21,10 +26,28 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     // Se suscribe al cambio ya que a medida que se cambie de ruta, se cambian los parametros
     // Para escuchar los cambios que existan en los parametros
-    this.route.params.subscribe((params: Params) => {
+    // Lo siguiente realiza doble suscribe
+    /*this.route.params.subscribe((params: Params) => {
       const id = params.id;
       this.fetchProduct(id);
-    });
+    });*/
+
+    // Encadenando un suscribe a traves de switchMap, para no realizar doble suscribe
+    /*this.route.params
+    .pipe(
+      switchMap((params: Params )=> {
+        return this.produtcsService.getProduct(params.id);
+      })
+    )
+    .subscribe(product => {
+      this.product = product;
+    });*/
+
+    // Sin suscribirse pero utilizando el async el cual controle el suscribe a traves de una variable Observable
+    this.product$ = this.route.params
+    .pipe(
+      switchMap((params: Params ) => this.produtcsService.getProduct(params.id))
+    );
   }
 
   fetchProduct(id: string) {

@@ -300,4 +300,10 @@ Librerias:
 NGRX: Redux y Rxjs
 Akita: Redux
 
-## Acortar las importaciones
+## Acortar las importaciones (Short imports)
+Permite configurar a TypeScript para crear alias a las rutas y utilizar rutas mas pequeñas al momento de utilizarlas
+
+## HTTP Client
+
+
+
