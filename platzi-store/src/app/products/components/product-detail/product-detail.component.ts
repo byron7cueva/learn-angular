@@ -99,9 +99,14 @@ export class ProductDetailComponent implements OnInit {
 
   getRandomUsers() {
     this.userService.getRandomUsers()
-    .subscribe(users => {
-      console.log(users);
-    });
+    .subscribe(
+      users => { // Este es el metodo que se ejecuta cuando todo sale bien
+        console.log(users);
+      },
+      error => { // Este metodo se ejecuta cuando ocurre un error
+        console.error(error);
+      }
+    );
   }
 
 }
