@@ -15,6 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -33,7 +34,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatListModule,
     LayoutModule,
     MatFormFieldModule,
-    MatStepperModule
+    MatStepperModule,
+    MatChipsModule
 
   ],
   // Pare que los modulos que importen este modulo puedan utilizar los modulos
@@ -52,7 +54,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatListModule,
     LayoutModule,
     MatFormFieldModule,
-    MatStepperModule
+    MatStepperModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule { }

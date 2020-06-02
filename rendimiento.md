@@ -156,3 +156,16 @@ npm run build:ssr && npm run serve:ssr
 
 Al pasar al server side render perdemos ciertas facultades que tenemos en el navegador.
 Por ejemplo: navigator, window, document
+
+## Rendimiento en tiempo de ejecución
+
+### Change Detection
+
+La deteccion de cambios se llama Change Detection.
+
+Funciones puras:
+Sin importar cuantas veces se ejecute esa funcion con los mismos parametros siempre van a dar el mismo
+resultado. Angular utiliza este concepto en sus pipes para poder procesar y hacer una tecnica memoraized.
+Esta tecnica se trata de hacer memorizacion de un valor calculado previamente, si le mando un mismo valor
+que previamente lo calculo, revisa si existe ese valor en cache y no realiza ningun calculo solo devuelve
+el valor que se calculo previamente.
