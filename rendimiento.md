@@ -104,3 +104,15 @@ Como es una aplicacion single page, en el componente global se debe hacer una co
 para que cada ves que finalice de cargar una seccion mande esa informacion que necesita a google analytics.
 
 
+### Guess.js
+https://guess-js.github.io/
+
+Sigue la metodologia de cadenas de Markov
+
+yaget.js (Investigar)
+
+Los pasos que debe cumplir son los siguientes:
+1) La aplicacion debe estar modularizada.
+2) Cambiar configuraciones de angular como tal
+
+Este solo funciona para produccion
