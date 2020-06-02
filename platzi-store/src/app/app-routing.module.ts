@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { QuicklinkStrategy } from 'ngx-quicklink';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -83,8 +84,11 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     // La precarga del resto de modulos lo va ser el navegador si este ya no se encuentra ocupado
+    // enableTracing: false,
+    // paramsInheritanceStrategy: 'always',
     // preloadingStrategy: PreloadAllModules // Indicando una estrategia de pregarga de modulos
-    preloadingStrategy: PreloadService // Indicando tecnica de precarga customizada
+    // preloadingStrategy: PreloadService // Indicando tecnica de precarga customizada
+    preloadingStrategy: QuicklinkStrategy
   })],
   exports: [RouterModule]
 })

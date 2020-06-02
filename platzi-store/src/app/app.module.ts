@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import * as Sentry from '@sentry/browser';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from '@shared/shared.module';
@@ -40,7 +41,8 @@ if (environment.production) {
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    QuicklinkModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { QuicklinkModule } from 'ngx-quicklink';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -31,7 +32,8 @@ import { CartComponent } from './components/cart/cart.component';
     CommonModule,
     RouterModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QuicklinkModule // Agregando modulo para estrategia de precarga de modulos desde los links que se visualizan en el viewport
   ],
   // Explicitamente se debe indicar que componentes van a ser exportados
   // para que otro modulo los pueda utilizar
