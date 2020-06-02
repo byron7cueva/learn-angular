@@ -1,4 +1,7 @@
-<p>calue: {{ value }}</p>
+<!--
+  <p>calue: {{ value }}</p>
+-->
+<p>calue: {{ value$ | async }}</p>
 <app-list
   title="Lista sales"
   [data]="salesList"

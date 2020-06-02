@@ -177,4 +177,7 @@ Si tenemos otro Observable que no es HttpClient, debemos asegurarnos de desuscri
 Si no estamos generando un bucle de memoria, generando una suscripcion a datos que puede ser que ya
 no estemos utilizando
 
+## Async
 
+Este es un pipe de angular va hacer el trabajo de suscribirce y automaticamente se va desuscribir
+cuando el componente muere.
