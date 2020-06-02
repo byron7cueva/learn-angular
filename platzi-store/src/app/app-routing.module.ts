@@ -3,7 +3,8 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
-import { AdminGuard } from './core/guards/admin.guard';
+import { AdminGuard } from '@core/guards/admin.guard';
+import { PreloadService } from '@core/services/preload.service';
 
 // Rutas
 const routes: Routes = [
@@ -22,7 +23,11 @@ const routes: Routes = [
       {
         path: 'home', // Es la url
         // Cargando un modulo
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+        // Agregando metadata para precarga selectiva
+        data: {
+          preload: true
+        }
       },
       /*{
         path: 'products',
@@ -39,7 +44,10 @@ const routes: Routes = [
         // Si le le pasa una url dinamica vamos a perder habilidades de analisis estatico del codigo, como webpack o rollar, por lo cual
         // no van hacer ninguna practica de obtimizacion a esos modulos
         // La buena practica es utilizar dinamic imports pero no mandarle urls dinamicas. Se debe utilizar strings literales
-        loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+        loadChildren: () => import('./products/products.module').then(m => m.ProductsModule),
+        data: {
+          preload: true
+        }
       },
       {
         path: 'contact',
@@ -75,7 +83,8 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     // La precarga del resto de modulos lo va ser el navegador si este ya no se encuentra ocupado
-    preloadingStrategy: PreloadAllModules // Indicando una estrategia de pregarga de modulos
+    // preloadingStrategy: PreloadAllModules // Indicando una estrategia de pregarga de modulos
+    preloadingStrategy: PreloadService // Indicando tecnica de precarga customizada
   })],
   exports: [RouterModule]
 })
