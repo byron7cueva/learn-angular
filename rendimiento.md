@@ -169,3 +169,12 @@ resultado. Angular utiliza este concepto en sus pipes para poder procesar y hace
 Esta tecnica se trata de hacer memorizacion de un valor calculado previamente, si le mando un mismo valor
 que previamente lo calculo, revisa si existe ese valor en cache y no realiza ningun calculo solo devuelve
 el valor que se calculo previamente.
+
+## Suscribe
+Los HttpClient, son observables que se desuscriben automaticamente cuando el request fue completado,
+en ellos no nos podemos preocupar por bloqueos de memoria.
+Si tenemos otro Observable que no es HttpClient, debemos asegurarnos de desuscribirnos.
+Si no estamos generando un bucle de memoria, generando una suscripcion a datos que puede ser que ya
+no estemos utilizando
+
+

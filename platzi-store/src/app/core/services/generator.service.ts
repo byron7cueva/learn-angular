@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { EmployeeData } from '../models/employee.model';
 
+// interval Genera un valor cada cierto tiempo
+import { interval } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,5 +34,10 @@ export class GeneratorService {
       label: this.generateLabel(labels),
       num: this.generateNumber(numRange)
     };
+  }
+
+  getData() {
+    // El intervalo se lo pasa en millisegundos
+    return interval(2000);
   }
 }
