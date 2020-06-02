@@ -78,3 +78,29 @@ base para utilizar esta estrategia; esta lo que hace es detectar los links que e
 aplicacion.
 La libreria que utiliza esta tecnica se llama ngx-quicklink
 Se debe importar el modulo de QuicklinkModule a los modulos que utilizan routerLink
+
+### Machine Learning para predecir rutas
+
+En base a la navegacion del usuario, generamos un modelo predictivo para que angular precarge el modulo
+necesario, esto se llama cadenas de Markov (creado por Andrei Andreyevich Markov)
+
+Esta cadena de markov, lo que hace es examinar la probabilidad de navegar a una pagina u otra.
+Se asigna un peso. Por ejemplo de 0 a 1
+
+Para cualquier modelo predictivo, debemos contar con data existente. Se necesita dejar al aire por un momento
+el sitio web para luego aplicar esta tecnica.
+
+Para ello se utiliza la libreria Guess.js
+Lo que hace esta es:
+1) Generar la data a traves de google analytics
+2) Generar el modelo predictivo utilizando las cadenas de markov con tensor flow
+3) Y ese modelo predictivo le agrega a los assets de nuestra aplicacion
+4) Una vez puesto este a nuestros assets, va a precargar automaticamente el modulo que tenga mayor
+prediccion en un punto especifico
+
+### Google Analytics
+
+Como es una aplicacion single page, en el componente global se debe hacer una configuracion especial
+para que cada ves que finalice de cargar una seccion mande esa informacion que necesita a google analytics.
+
+
