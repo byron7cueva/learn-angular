@@ -19,7 +19,7 @@ const routes: Routes = [
         // Una regla de ruta para que al ingresar a / redireccione a home
         path: '',
         redirectTo: 'home',
-        pathMatch: 'full' // Cuanso solo tenga la direccion sin una ruta
+        pathMatch: 'full' // Cuando solo tenga la direccion sin una ruta, y estoy realizando un redirect
       },
       {
         path: 'home', // Es la url

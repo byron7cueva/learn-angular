@@ -116,3 +116,18 @@ Los pasos que debe cumplir son los siguientes:
 2) Cambiar configuraciones de angular como tal
 
 Este solo funciona para produccion
+
+### Precarga con Services workers
+
+Volviendo la aplicacion en una web progresiva, esto se hace utilizando tecnicas de precaching o
+haciendo cacheo de los archivos.
+
+Se puede cachear, para que este en cache y la carga sea mas rapida.
+
+Lo que se debe hacer lo siguiente
+
+```bash
+ng add @angular/pwa --project nombre-proyecto (El nombre del proyecto se encuenta en angular.json dentro de "projects")
+```
+
+Solo funciona para una version en produccion.
