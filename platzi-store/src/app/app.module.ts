@@ -34,7 +34,7 @@ if (environment.production) {
     LayoutComponent // Agregando el componente
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     CoreModule,

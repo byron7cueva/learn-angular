@@ -131,3 +131,28 @@ ng add @angular/pwa --project nombre-proyecto (El nombre del proyecto se encuent
 ```
 
 Solo funciona para una version en produccion.
+
+### Server side render
+
+Nos ayuda en el rendimiento, solucionando 3 puntos claves:
+
+1) SEO: Posicionamiento en motores de busqueda.
+La version sin javascript es la que leen los motores de busqueda, y capturan esa informacion para poderla
+indexar en motores. Si la pagina no tiene server side render va ser muy dificil que los buscadores puedan
+posicionar la pagina en las busquedas.
+2) Nos ayuda en el performance ya que el renderizado no se hace desde el cliente, sino desde el servidor.
+3) First Page: La carga de la pagina inicial se va hacer muy rapida.
+
+En angular se lo cuede aplicar con un paquete que tienen que se llama Universal
+
+```bash
+ng add @nguniversal/express-engine --clientProject nombre-proyecto
+```
+
+Correr la aplicacion, ya no se la debe hacer con ng build sino:
+```bash
+npm run build:ssr && npm run serve:ssr
+```
+
+Al pasar al server side render perdemos ciertas facultades que tenemos en el navegador.
+Por ejemplo: navigator, window, document

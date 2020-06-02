@@ -88,8 +88,9 @@ const routes: Routes = [
     // paramsInheritanceStrategy: 'always',
     // preloadingStrategy: PreloadAllModules // Indicando una estrategia de pregarga de modulos
     // preloadingStrategy: PreloadService // Indicando tecnica de precarga customizada
-    preloadingStrategy: QuicklinkStrategy
-  })],
+    preloadingStrategy: QuicklinkStrategy,
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

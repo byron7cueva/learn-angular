@@ -12,6 +12,8 @@ import {
 
 import { Product } from '@core/models/product.model';
 import { CartService } from '@core/services/cart.service';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 // Anotacion para poder definir que es un componente
 @Component({
@@ -34,9 +36,13 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
     today = new Date();
 
     constructor(
-        private cartService: CartService
+        private cartService: CartService,
+        // tslint:disable-next-line: ban-types
+        @Inject(PLATFORM_ID) private platformId: Object
     ) {
-        console.log('1. Constructor');
+        if (isPlatformBrowser(this.platformId)) {
+            console.log('1. Constructor');
+        }
     }
 
     // Se ejecuta despues del constructor y cada vez que hay cambios en los inputs
@@ -49,21 +55,29 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 
     // Se ejecuta una sola vez cuando ya este es puesto en pantalla
     ngOnInit() {
-        console.log('3. ngOnInit');
+        if (isPlatformBrowser(this.platformId)) {
+            console.log('3. ngOnInit');
+        }
     }
 
     // Este tiene una colision con onChange, ya que los dos se encargan de datectar cambios
     // Aca uno se puede hacer la deteccion de cambios pero customizada por uno
     ngDoCheck() {
-        console.log('4. ngDoCheck');
+        if (isPlatformBrowser(this.platformId)) {
+            console.log('4. ngDoCheck');
+        }
     }
 
     ngOnDestroy() {
-        console.log('5. ngOnDestroy');
+        if (isPlatformBrowser(this.platformId)) {
+            console.log('5. ngOnDestroy');
+        }
     }
 
     addCart() {
-        console.log('Anadir al carrito');
+        if (isPlatformBrowser(this.platformId)) {
+            console.log('Anadir al carrito');
+        }
 
         // Emitiendo las salida
         // Lo que se envia dentro de emit, se puede recibir a traves de la variable que genera angular llamada $event
