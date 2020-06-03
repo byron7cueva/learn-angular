@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { CartService } from '@core/services/cart.service';
 // Map se utiliza para transformar el valor que llega a uno nuevo
@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
 
   // total = 0;
   total$: Observable<number>;
+  installEvent = null;
 
   constructor(
     private cartService: CartService
@@ -40,6 +41,25 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  // Necesitamos activar el listener
+  @HostListener('window:beforeinstallprompt', ['$event'])
+  onBeforeInstallPrompt(event: Event) {
+    event.preventDefault(); // Cancelando su funcion por defecto
+    console.log(event);
+    this.installEvent = event;
+  }
+
+  installByUser() {
+    if (this.installEvent) {
+      this.installEvent.prompt();
+      // Obtener la respuesta del usuario
+      this.installEvent.userChoice()
+      .then(rta => {
+        console.log(rta);
+      });
+    }
   }
 
 }

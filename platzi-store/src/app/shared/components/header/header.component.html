@@ -9,6 +9,7 @@
             <nav>
                 <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
                 <a mat-button routerLink="/products" routerLinkActive="active">Products</a>
+                <a mat-button (click)="installByUser()" *ngIf="installEvent">Install App</a>
                 <!-- <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a> -->
             </nav>
             <!--
