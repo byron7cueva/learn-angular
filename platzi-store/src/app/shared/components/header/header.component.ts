@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit {
     if (this.installEvent) {
       this.installEvent.prompt();
       // Obtener la respuesta del usuario
-      this.installEvent.userChoice()
+      this.installEvent.userChoice
       .then(rta => {
         console.log(rta);
       });

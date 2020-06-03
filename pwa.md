@@ -131,3 +131,9 @@ timeout: Tiempo de espera, esta espera es depende de la estrategia. Lo mas morma
 2s5u Se puede tambien hacer convinanciones
 
 Se recomienda freshness como strategia.
+
+## Actualizaciones
+
+SwUpdate es un servicio de angular que nos permite realiar actuallizaciones a una aplicacio pwa con angular.
+
+
