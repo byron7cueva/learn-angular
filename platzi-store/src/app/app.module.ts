@@ -4,6 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+// Para el servicio de mensajeria
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+// Base de datos en tiempo real
+// Para guardar en una base de datos temporal los tokens de los dispositivos que se van conectando
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 import * as Sentry from '@sentry/browser';
 import { QuicklinkModule } from 'ngx-quicklink';
 
@@ -44,7 +50,9 @@ if (environment.production) {
     AngularFireAuthModule,
     AngularFireStorageModule,
     QuicklinkModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireMessagingModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

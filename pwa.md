@@ -136,4 +136,6 @@ Se recomienda freshness como strategia.
 
 SwUpdate es un servicio de angular que nos permite realiar actuallizaciones a una aplicacio pwa con angular.
 
+## Clound Messagin FCM
 
+Es un servicio de firebase, para manejar la mensajeria, las notificaciones.
