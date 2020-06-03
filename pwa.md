@@ -83,3 +83,51 @@ Nos pide instalar la siguiente dependencia en el proyecto
 ```bash
 npm install -g firebase-tools
 ```
+
+## Lighthouse
+
+Es una herramienta de auditoria que nos sirve para inspeccionar que tan bien estamos haciendo nuestra aplicacion
+Web Progresiva o que nos falta por implementar. Esta se base en el mejor estandar de la web, mirando cosas
+como: performance, accesibilidad, seo.
+
+Esta realiaz un reporte pero no para todas las rutas de la aplicacion, si no que se debe realizar por cada
+ruta.
+
+## Cache de assets
+
+ngsw-config.json
+Existen dos tipos de installMode
+prefetch: Precargar ese archivo una vez que los tiene en el inicio y los guarda en la cache.
+Lo malo es que en la primera carga puede consumir ancho de banda.
+No debemos preocuparnos que no carge la ultima versio del archivo, ya que la compilacion de webpack genera
+un id unico.
+lazy: No hago un cache apenas se obtenga el archivo, sino cada vez que se detecte que el navegador o el usuario
+accede a ese archivo. A medidad que el usuario lo va necesitando lo va poniendo en cache.
+Para cargar los archivos que no tienen un hash
+
+## Cache de request
+
+Hay que tener cuidado con eso ya que hay informacion que puede ser sencible y no vale que se mantenga en
+cache.
+
+Para hacer cache de todo en urls, se puede poner el dominio/**, o indicarle cada ruta que se desea cachear como
+por ejemplo: ["dominio/product", "dominio/ventas"]
+cacheConfig
+maxSize: Es el numero de request que vamos a guardar. Son como numero de intentos de refrescar la informacion.
+maxAge: Por cuanto tiempo va vivir esa cache. Por ejemplo para indicarle 7 dias le asignamos 7d.
+u: millisegundos
+m: minutos
+h: horas
+d: dias
+
+strategy
+Las estrategias de carga, existen dos:
+performance: Es la que siempre va dar la mejor experiencia hacia el usuario. Es decir sacarlo de la cache.
+Si la informacion esta en la cache, simpre va primar la cache.
+freshness: Esta estrategia, siempre saque la informacion de internet pero, si el usuario se quedo sin
+conexion o tiene una red lente, entonces bueno ahora si por segunda opcion tome de cache.
+
+timeout: Tiempo de espera, esta espera es depende de la estrategia. Lo mas mormal es colocar segundos
+2s5u Se puede tambien hacer convinanciones
+
+Se recomienda freshness como strategia.
