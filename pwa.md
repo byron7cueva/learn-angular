@@ -139,3 +139,15 @@ SwUpdate es un servicio de angular que nos permite realiar actuallizaciones a un
 ## Clound Messagin FCM
 
 Es un servicio de firebase, para manejar la mensajeria, las notificaciones.
+
+## Lighthouse Bot
+
+### Integracion Continua
+
+Filosofia de desarrollo unido con operaciones
+
+DevOps
+
+```bash
+lighthouse url
+```
