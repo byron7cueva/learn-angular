@@ -9,6 +9,7 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import { DatesComponent } from './components/dates/dates.component';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
 import { FormBuilderComponent } from './components/form-builder/form-builder.component';
+import { MaterialFormComponent } from './components/material-form/material-form.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path: 'builder',
         component: FormBuilderComponent
+      },
+      {
+        path: 'material',
+        component: MaterialFormComponent
       }
     ]
   }

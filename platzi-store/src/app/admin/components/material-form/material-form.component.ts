@@ -6,11 +6,11 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-builder',
-  templateUrl: './form-builder.component.html',
-  styleUrls: ['./form-builder.component.scss']
+  selector: 'app-material-form',
+  templateUrl: './material-form.component.html',
+  styleUrls: ['./material-form.component.scss']
 })
-export class FormBuilderComponent implements OnInit {
+export class MaterialFormComponent implements OnInit {
 
   form: FormGroup;
 
@@ -21,8 +21,6 @@ export class FormBuilderComponent implements OnInit {
   }
 
   private buildForm() {
-    // Construyendo el formulario
-
     this.form = this.formBuilder.group({
       // Se puede agregar otro FormGroup
       fullName: this.formBuilder.group({
@@ -51,12 +49,6 @@ export class FormBuilderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Escuchar los cambios del formulario
-    this.form.valueChanges
-      .subscribe(value => {
-        // Nos envia todo el objeto
-        console.log(value);
-      });
   }
 
   get nameField() {

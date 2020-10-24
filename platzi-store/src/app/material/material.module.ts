@@ -16,6 +16,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -35,7 +38,10 @@ import { MatChipsModule } from '@angular/material/chips';
     LayoutModule,
     MatFormFieldModule,
     MatStepperModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule
 
   ],
   // Pare que los modulos que importen este modulo puedan utilizar los modulos
@@ -55,7 +61,10 @@ import { MatChipsModule } from '@angular/material/chips';
     LayoutModule,
     MatFormFieldModule,
     MatStepperModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }
