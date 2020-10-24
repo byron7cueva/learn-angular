@@ -47,6 +47,8 @@ Angular ofrece dos formas para manejar formularios
 
 * Es un generador de formularios.
 * Es un servicio que nos ayuda cómodamente a crear formularios.
+* Permite una sintaxis mas rápida y mas cómoda.
+* Nos devuelve un FormGroup el cual tiene un estado similar a los que tiene el FormControl, pero valida todos los campos.
 
 
 

@@ -11,6 +11,7 @@ import { FormProductComponent } from './components/form-product/form-product.com
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { DatesComponent } from './components/dates/dates.component';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
+import { FormBuilderComponent } from './components/form-builder/form-builder.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { BasicFormComponent } from './components/basic-form/basic-form.component
     FormProductComponent,
     ProductEditComponent,
     DatesComponent,
-    BasicFormComponent
+    BasicFormComponent,
+    FormBuilderComponent
   ],
   imports: [
     CommonModule,

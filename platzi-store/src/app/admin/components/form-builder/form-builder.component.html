@@ -1,0 +1,120 @@
+<form [formGroup]="form" (ngSubmit)="save($event)">
+  <p>
+    Name: {{ nameField.valid }}
+    <input
+      [class.is-valid]="isNameFieldValid"
+      [class.is-invalid]="isNameFieldInValid"
+      type="text"
+      formControlName="name"
+    />
+  </p>
+  <div class="messages" [class.active]="isNameFieldInValid">
+    <p>
+      <!-- El nombre es el nombre del validador -->
+      <strong *ngIf="nameField.touched && nameField.hasError('required')">
+        Este campo es requerido
+      </strong>
+    </p>
+    
+    <p>
+      <!-- El nombre es el nombre del validador y deben ser en minúsculas -->
+      <strong *ngIf="nameField.touched && nameField.hasError('maxlength')">
+        Debe tener maximo 10 caracteres
+      </strong>
+    </p>
+  </div>
+
+  <p>
+    Email: {{ emailField.value }}
+    <input type="email" formControlName="email" />
+  </p>
+
+  <p>
+    Phone: {{ phoneField.value }}
+    <input type="tel" formControlName="phone" />
+  </p>
+  <div class="messages" [class.active]="phoneField.touched && phoneField.invalid">
+    <p>
+      <!-- El nombre es el nombre del validador -->
+      <strong *ngIf="phoneField.touched && phoneField.hasError('required')">
+        Este campo es requerido
+      </strong>
+    </p>
+  </div>
+
+  <p>
+    Color: {{ colorField.value }}
+    <input type="color" formControlName="color" />
+  </p>
+
+  <p>
+    Date: {{ dateField.value }}
+    <input type="date" formControlName="date" />
+  </p>
+
+  <p>
+    Age: {{ ageField.value }}
+    <input type="number" formControlName="age" />
+  </p>
+
+  <p>
+    Category: {{ categoryField.value }}
+    <select formControlName="category">
+      <option value="category-1">Category 1</option>
+      <option value="category-2">Category 2</option>
+      <option value="category-3">Category 3</option>
+      <option value="category-4">Category 4</option>
+    </select>
+  </p>
+
+  <p>
+    Tags: {{ tagField.value }}
+    <select formControlName="tag" multiple>
+      <option value="tag-1">Tag 1</option>
+      <option value="tag-2">Tag 2</option>
+      <option value="tag-3">Tag 3</option>
+      <option value="tag-4">Tag 4</option>
+    </select>
+  </p>
+
+  <p>
+    Agree: {{ agreeField.value }}
+    <input type="checkbox" formControlName="agree" />
+  </p>
+
+  <p>
+    Gender: {{ genderField.value }}
+    <label>
+      Male
+      <input name="gender" type="radio" value="male" formControlName="gender" />
+    </label>
+    <label>
+      Female
+      <input name="gender" type="radio" value="female" formControlName="gender" />
+    </label>
+    <label>
+      Other
+      <input name="gender" type="radio" value="other" formControlName="gender" />
+    </label>
+  </p>
+
+  <p>
+    Zone: {{ zoneField.value }}
+    <label>
+      Zona 1
+      <input name="zone" type="radio" value="zone-1" formControlName="zone" />
+    </label>
+    <label>
+      Zona 2
+      <input name="zone" type="radio" value="zone-2" formControlName="zone" />
+    </label>
+    <label>
+      Zona 3
+      <input name="zone" type="radio" value="zone-3" formControlName="zone" />
+    </label>
+  </p>
+
+  <p>
+    <button type="submit">Enviar</button>
+  </p>
+</form>
