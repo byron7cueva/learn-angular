@@ -24,11 +24,19 @@ export class FormBuilderComponent implements OnInit {
     // Construyendo el formulario
 
     this.form = this.formBuilder.group({
-      name: ['', [
-        Validators.required,
-        Validators.maxLength(10),
-        Validators.pattern(/^[a-zA-Z]+$/)
-      ]],
+      // Se puede agregar otro FormGroup
+      fullName: this.formBuilder.group({
+        name: ['', [
+          Validators.required,
+          Validators.maxLength(10),
+          Validators.pattern(/^[a-zA-Z]+$/)
+        ]],
+        last: ['', [
+          Validators.required,
+          Validators.maxLength(10),
+          Validators.pattern(/^[a-zA-Z]+$/)
+        ]]
+      }),
       email: ['', [ Validators.required, Validators.email ]],
       phone: ['', Validators.required ],
       color: ['#000000'],
@@ -44,15 +52,19 @@ export class FormBuilderComponent implements OnInit {
 
   ngOnInit(): void {
     // Escuchar los cambios del formulario
-    this.form.valueChanges
+    /*this.form.valueChanges
       .subscribe(value => {
         // Nos envia todo el objeto
         console.log(value);
-      });
+      });*/
   }
 
   get nameField() {
-    return this.form.get('name');
+    return this.form.get('fullName').get('name');
+  }
+
+  get lastField() {
+    return this.form.get('fullName.last');
   }
 
   get emailField() {

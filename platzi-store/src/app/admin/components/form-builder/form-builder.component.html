@@ -1,31 +1,41 @@
 <form [formGroup]="form" (ngSubmit)="save($event)">
-  <p>
-    Name: {{ nameField.valid }}
-    <input
-      [class.is-valid]="isNameFieldValid"
-      [class.is-invalid]="isNameFieldInValid"
-      type="text"
-      formControlName="name"
-    />
-  </p>
-  <div class="messages" [class.active]="isNameFieldInValid">
+  <div formGroupName="fullName">
     <p>
-      <!-- El nombre es el nombre del validador -->
-      <strong *ngIf="nameField.hasError('required')">
-        Este campo es requerido
-      </strong>
+      Name: {{ nameField.valid }}
+      <input
+        [class.is-valid]="isNameFieldValid"
+        [class.is-invalid]="isNameFieldInValid"
+        type="text"
+        formControlName="name"
+      />
     </p>
-    
+    <div class="messages" [class.active]="isNameFieldInValid">
+      <p>
+        <!-- El nombre es el nombre del validador -->
+        <strong *ngIf="nameField.hasError('required')">
+          Este campo es requerido
+        </strong>
+      </p>
+      
+      <p>
+        <!-- El nombre es el nombre del validador y deben ser en minúsculas -->
+        <strong *ngIf="nameField.hasError('maxlength')">
+          Debe tener maximo 10 caracteres
+        </strong>
+      </p>
+      <p>
+        <strong *ngIf="nameField.hasError('pattern')">
+          No debe tener números ni caracteres especiales
+        </strong>
+      </p>
+    </div>
+
     <p>
-      <!-- El nombre es el nombre del validador y deben ser en minúsculas -->
-      <strong *ngIf="nameField.hasError('maxlength')">
-        Debe tener maximo 10 caracteres
-      </strong>
-    </p>
-    <p>
-      <strong *ngIf="nameField.hasError('pattern')">
-        No debe tener números ni caracteres especiales
-      </strong>
+      Last Name: {{ lastField.valid }}
+      <input
+        type="text"
+        formControlName="last"
+      />
     </p>
   </div>
 
