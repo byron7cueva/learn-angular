@@ -11,15 +11,20 @@
   <div class="messages" [class.active]="isNameFieldInValid">
     <p>
       <!-- El nombre es el nombre del validador -->
-      <strong *ngIf="nameField.touched && nameField.hasError('required')">
+      <strong *ngIf="nameField.hasError('required')">
         Este campo es requerido
       </strong>
     </p>
     
     <p>
       <!-- El nombre es el nombre del validador y deben ser en minúsculas -->
-      <strong *ngIf="nameField.touched && nameField.hasError('maxlength')">
+      <strong *ngIf="nameField.hasError('maxlength')">
         Debe tener maximo 10 caracteres
+      </strong>
+    </p>
+    <p>
+      <strong *ngIf="nameField.hasError('pattern')">
+        No debe tener números ni caracteres especiales
       </strong>
     </p>
   </div>
@@ -28,6 +33,19 @@
     Email: {{ emailField.value }}
     <input type="email" formControlName="email" />
   </p>
+  <div class="messages" [class.active]="emailField.touched && emailField.invalid">
+    <p>
+      <strong *ngIf="emailField.hasError('required')">
+        Este campo es requerido
+      </strong>
+    </p>
+    <p>
+      <strong *ngIf="emailField.hasError('email')">
+        Esto no es un email válido
+      </strong>
+    </p>
+  </div>
+
 
   <p>
     Phone: {{ phoneField.value }}
@@ -35,8 +53,7 @@
   </p>
   <div class="messages" [class.active]="phoneField.touched && phoneField.invalid">
     <p>
-      <!-- El nombre es el nombre del validador -->
-      <strong *ngIf="phoneField.touched && phoneField.hasError('required')">
+      <strong *ngIf="phoneField.hasError('required')">
         Este campo es requerido
       </strong>
     </p>
@@ -56,6 +73,23 @@
     Age: {{ ageField.value }}
     <input type="number" formControlName="age" />
   </p>
+  <div class="messages" [class.active]="ageField.touched && ageField.invalid">
+    <p>
+      <strong *ngIf="ageField.hasError('required')">
+        Este campo es requerido
+      </strong>
+    </p>
+    <p>
+      <strong *ngIf="ageField.hasError('min')">
+        La edad debe ser de por lo menos 18 años
+      </strong>
+    </p>
+    <p>
+      <strong *ngIf="ageField.hasError('max')">
+        La edad no debe superar de los 100 años
+      </strong>
+    </p>
+  </div>
 
   <p>
     Category: {{ categoryField.value }}
@@ -81,6 +115,13 @@
     Agree: {{ agreeField.value }}
     <input type="checkbox" formControlName="agree" />
   </p>
+  <div class="messages" [class.active]="agreeField.touched && agreeField.invalid">
+    <p>
+      <strong *ngIf="agreeField.hasError('required')">
+        Debe aceptar los térmminos y condiciones
+      </strong>
+    </p>
+  </div>
 
   <p>
     Gender: {{ genderField.value }}
