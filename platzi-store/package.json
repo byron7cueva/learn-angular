@@ -2,6 +2,7 @@
   "name": "platzi-store",
   "version": "0.0.0",
   "scripts": {
+    "postinstall": "ngcc",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -33,7 +34,7 @@
     "@sentry/browser": "^5.15.5",
     "date-fns": "^2.14.0",
     "express": "^4.15.2",
-    "firebase": "^7.14.6",
+    "firebase": "^7.24.0",
     "flexboxgrid": "^6.3.1",
     "ngx-quicklink": "^0.2.3",
     "rxjs": "~6.5.4",
@@ -42,7 +43,7 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.7",
+    "@angular-devkit/build-angular": "^0.1002.0",
     "@angular/cli": "~9.1.7",
     "@angular/compiler-cli": "~9.1.9",
     "@nguniversal/builders": "^9.1.1",
