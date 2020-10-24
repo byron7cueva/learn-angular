@@ -1,7 +1,12 @@
 <p>
-  Name: {{ nameField.value }}
-  <input type="text" [formControl]="nameField" />
-  <button (click)="getNameValue()">Get value</button>
+  Name: {{ nameField.valid }}
+  <input
+    [class.is-valid]="isNameFieldValid"
+    [class.is-invalid]="isNameFieldInValid"
+    type="text"
+    [formControl]="nameField"
+  />
+  <button [disabled]="nameField.invalid" (click)="getNameValue()">Get value</button>
   <!-- Imprimir todo lo que incluye un form control -->
   <!--
   <code>
@@ -9,6 +14,22 @@
   </code>
   -->
 </p>
+
+<div class="messages" [class.active]="isNameFieldInValid">
+  <p>
+    <!-- El nombre es el nombre del validador -->
+    <strong *ngIf="nameField.touched && nameField.hasError('required')">
+      Este campo es requerido
+    </strong>
+  </p>
+  
+  <p>
+    <!-- El nombre es el nombre del validador y deben ser en minúsculas -->
+    <strong *ngIf="nameField.touched && nameField.hasError('maxlength')">
+      Debe tener maximo 10 caracteres
+    </strong>
+  </p>
+</div>
 
 <p>
   Email: {{ emailField.value }}

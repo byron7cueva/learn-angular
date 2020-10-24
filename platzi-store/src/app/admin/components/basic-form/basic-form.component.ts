@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+// Validators es un conjunto de validadores normales para los formularios
+// contiene funciones que pueden ser reutilizadas
+import { FormControl, Validators } from '@angular/forms';
 
 interface Preference {
   area: string;
@@ -20,7 +22,9 @@ interface GenericEvent<T> extends Omit<Event, 'target'> {
 export class BasicFormComponent implements OnInit {
 
   // Se le puede agregar un valor por defecto
-  nameField = new FormControl('soy un control');
+  // FormControl(valor_por_defecto, validaciones_sincronas, validaciones_asincronas)
+  // Las validaciones sincronas pueden ser una o varias, se la puede pasar solo una validación o un array
+  nameField = new FormControl('', [ Validators.required, Validators.maxLength(10) ]);
   emailField = new FormControl('');
   phoneField = new FormControl('');
   colorField = new FormControl('#000000');
@@ -76,6 +80,14 @@ export class BasicFormComponent implements OnInit {
       const index = this.preferences.indexOf(value);
       this.preferences.splice(index, 1);
     }
+  }
+
+  get isNameFieldValid() {
+    return this.nameField.touched && this.nameField.value;
+  }
+
+  get isNameFieldInValid() {
+    return this.nameField.touched && this.nameField.invalid;
   }
 
 }

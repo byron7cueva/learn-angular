@@ -38,3 +38,7 @@ Angular ofrece dos formas para manejar formularios
 * Es la parte más atómica de un formulario reactivo.
 * Este contiene varios estados.
 
+## Validaciones
+
+
+
