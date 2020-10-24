@@ -38,7 +38,17 @@ Angular ofrece dos formas para manejar formularios
 * Es la parte más atómica de un formulario reactivo.
 * Este contiene varios estados.
 
-## Validaciones
+## FormGroup
+
+* Es un conjunto de FormControls
+* Para el manejo de múltiples campos. Es un conjunto de forms control.
+
+## FormBuilder
+
+* Es un generador de formularios.
+* Es un servicio que nos ayuda cómodamente a crear formularios.
+
+
 
 
 
