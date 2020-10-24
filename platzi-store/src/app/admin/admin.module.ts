@@ -10,14 +10,23 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { DatesComponent } from './components/dates/dates.component';
+import { BasicFormComponent } from './components/basic-form/basic-form.component';
 
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent, ProductsListComponent, FormProductComponent, ProductEditComponent, DatesComponent],
+  declarations: [
+    ProductFormComponent,
+    NavComponent,
+    ProductsListComponent,
+    FormProductComponent,
+    ProductEditComponent,
+    DatesComponent,
+    BasicFormComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, // Para trabajar como formularios rectivos
     MaterialModule
   ]
 })

@@ -17,4 +17,24 @@
 
   * update.angular.io
 
-  
+
+## Manejo de formularios
+
+Angular ofrece dos formas para manejar formularios
+
+### Template Forms  (FormModule)
+
+* Tienen que ver con la directiva ngForms y también con ngModel
+* Los ngModel se usa para inputs.
+
+### Reactive Forms  (ReactiveFormsModule)
+
+* Son más potentes para validaciones, asincronismo y se basan en Observables.
+* Se usa para formularios más complejos.
+* El rendimiento es más alto.
+
+## FormControl 
+
+* Es la parte más atómica de un formulario reactivo.
+* Este contiene varios estados.
+
