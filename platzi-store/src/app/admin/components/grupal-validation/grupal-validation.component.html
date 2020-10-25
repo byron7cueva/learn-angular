@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="enviar($event)">
+  <h3>Rango</h3>
+  <mat-form-field>
+    <mat-label>Mayor a</mat-label>
+    <input matInput type="number" formControlName="min" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Menor a</mat-label>
+    <input matInput type="number" formControlName="max" />
+  </mat-form-field>
+  <div *ngIf="form.invalid">
+    <mat-error *ngIf="form.hasError('range')">
+      El rango es incorrecto debe ser entre 0 y 100
+    </mat-error>
+  </div>
+  <p>
+    <button mat-raised-button type="submit">Enviar</button>
+  </p>
+</form>

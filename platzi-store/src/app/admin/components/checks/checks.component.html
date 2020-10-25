@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="save($event)">
+  <h3>Preferences {{ form.value | json }}</h3>
+  <p *ngFor="let preference of preferencesList">
+    <label>
+      <input type="checkbox" [value]="preference.value" (change)="checkboxChangeHandle($event)" />
+      {{ preference.area }}
+    </label>
+  </p>
+  <button type="submit">Enviar</button>
+</form>

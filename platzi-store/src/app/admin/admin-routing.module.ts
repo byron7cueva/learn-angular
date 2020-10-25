@@ -10,6 +10,8 @@ import { DatesComponent } from './components/dates/dates.component';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
 import { FormBuilderComponent } from './components/form-builder/form-builder.component';
 import { MaterialFormComponent } from './components/material-form/material-form.component';
+import { ChecksComponent } from './components/checks/checks.component';
+import { GrupalValidationComponent } from './components/grupal-validation/grupal-validation.component';
 
 const routes: Routes = [
   {
@@ -47,6 +49,14 @@ const routes: Routes = [
       {
         path: 'material',
         component: MaterialFormComponent
+      },
+      {
+        path: 'checks',
+        component: ChecksComponent
+      },
+      {
+        path: 'grupal-validation',
+        component: GrupalValidationComponent
       }
     ]
   }

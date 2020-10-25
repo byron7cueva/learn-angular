@@ -13,6 +13,8 @@ import { DatesComponent } from './components/dates/dates.component';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
 import { FormBuilderComponent } from './components/form-builder/form-builder.component';
 import { MaterialFormComponent } from './components/material-form/material-form.component';
+import { ChecksComponent } from './components/checks/checks.component';
+import { GrupalValidationComponent } from './components/grupal-validation/grupal-validation.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { MaterialFormComponent } from './components/material-form/material-form.
     DatesComponent,
     BasicFormComponent,
     FormBuilderComponent,
-    MaterialFormComponent
+    MaterialFormComponent,
+    ChecksComponent,
+    GrupalValidationComponent
   ],
   imports: [
     CommonModule,

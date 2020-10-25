@@ -34,6 +34,23 @@ export class MyValidators {
 
     return null;
   }
+
+  static range(minRange: number, maxRange: number) {
+    return (control: AbstractControl) => {
+      const min = control.get('min').value;
+      const max = control.get('max').value;
+
+      // Si no se ingresa ningun rango
+      if (min === '' && max === '') { return null; }
+
+      // Si se ingreso almenos uno de los do rangos, el otro es requerido
+      if (min <= minRange || max >= maxRange ) {
+        return { range: true };
+      }
+
+      return null;
+    };
+  }
 }
 
 function containsNumber(value: string) {
