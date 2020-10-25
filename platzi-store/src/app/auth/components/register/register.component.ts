@@ -26,6 +26,10 @@ export class RegisterComponent implements OnInit {
     return this.form.get('password');
   }
 
+  get confirmPasswordField() {
+    return this.form.get('confirmPassword');
+  }
+
   get isPasswordInvalid() {
     return this.passwordField.touched && this.passwordField.invalid;
   }
@@ -36,7 +40,12 @@ export class RegisterComponent implements OnInit {
   buildForm() {
     this.form = this.formBuilder.group({
       email: ['', Validators.email],
-      password: ['', [ Validators.required, Validators.minLength(6), MyValidators.validPassword ]]
+      password: ['', [ Validators.required, Validators.minLength(6), MyValidators.validPassword ]],
+      confirmPassword: ['', [ Validators.required ]]
+    }, {
+      // Validación de forma grupal
+      // El control que se envia al validador es del formulario
+      validators: MyValidators.matchPasswords
     });
   }
 

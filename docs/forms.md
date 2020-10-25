@@ -74,3 +74,7 @@ Angular ofrece dos formas para manejar formularios
 
 * Se puede crear una validación personalizada, pero siempre y cuando no aplique los 11 tipos de validaciones que nos ofrece angular.
 
+## Validaciones grupales
+
+* Validaciones que dependen de dos o más campos.
+
