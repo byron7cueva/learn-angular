@@ -66,7 +66,11 @@ Angular ofrece dos formas para manejar formularios
 
 * regex101.con: Es un revisor online de expresiones regulares.
 
+## Errores comunes a la hora de realizar formularios
 
+* [Design Better Forms](https://medium.com/nextux/design-better-forms-96fadca0f49c)
 
+## Validaciones personalizadas
 
+* Se puede crear una validación personalizada, pero siempre y cuando no aplique los 11 tipos de validaciones que nos ofrece angular.
 
