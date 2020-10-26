@@ -57,6 +57,10 @@ const routes: Routes = [
       {
         path: 'grupal-validation',
         component: GrupalValidationComponent
+      },
+      {
+        path: 'categories',
+        loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule)
       }
     ]
   }
