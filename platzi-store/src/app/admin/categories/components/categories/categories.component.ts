@@ -11,7 +11,7 @@ import { CategoriesService } from '@core/services/categories.service';
 export class CategoriesComponent implements OnInit {
 
   categories: Category[] = [];
-  displayColumns: string[] = ['name', 'image'];
+  displayColumns: string[] = ['id', 'name', 'image', 'actions'];
 
   constructor(
     private categoriesService: CategoriesService
@@ -25,6 +25,13 @@ export class CategoriesComponent implements OnInit {
     this.categoriesService.getAllCategories()
     .subscribe(categories => {
       this.categories = categories;
+    });
+  }
+
+  deleteCategory(id: string) {
+    this.categoriesService.deleteCategory(id)
+    .subscribe(() => {
+      this.getAllCategories();
     });
   }
 

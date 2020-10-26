@@ -19,15 +19,25 @@
       </div>
       <div class="row">
         <div class="col-xs">
-          <mat-form-field>
-            <mat-label>Image</mat-label>
-            <input placeholder="Image" formControlName="image" matInput type="text" />
-            <div class="messages" *ngIf="imageFieldInvalid">
-              <mat-error *ngIf="imageField.hasError('required')">
-                Este campo es requerido
-              </mat-error>
+          <div class="img-container">
+            <img *ngIf="imageField.value" [src]="imageField.value" />
+            <div class="input-file">
+              <input
+                (change)="uploadFile($event)"
+                placeholder="Image"
+                type="file"
+                title="Agregar una imagen"
+              />
+              <button mat-mini-fab color="accent" aria-label="Subir imagen">
+                <mat-icon>add_photo_alternate</mat-icon>
+              </button>
             </div>
-          </mat-form-field>
+          </div>
+          <div class="messages" *ngIf="imageFieldInvalid">
+            <mat-error *ngIf="imageField.hasError('required')">
+              Este campo es requerido
+            </mat-error>
+          </div>
         </div>
       </div>
     </mat-card-content>

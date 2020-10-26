@@ -24,4 +24,8 @@ export class CategoriesService {
   updateCategory(id: string, data: Partial<Category>) {
     return this.httpClient.put<Category>(`${environment.url_api}/categories/${id}`, data);
   }
+
+  deleteCategory(id: string) {
+    return this.httpClient.delete(`${environment.url_api}/categories/${id}`);
+  }
 }

@@ -83,3 +83,7 @@ Angular ofrece dos formas para manejar formularios
 * Son aquellas que cambian dinámicamente respecto a los cambios que haga el usuario en el formulario.
 * Esto se realiza en tiempo de ejecución de acuerdo a los cambios que realiza el usuario en la interfaz.
 
+## Input tipo file
+
+* Angular no nos ofrece un componente para inputs de tipo file.
+
