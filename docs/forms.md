@@ -78,3 +78,8 @@ Angular ofrece dos formas para manejar formularios
 
 * Validaciones que dependen de dos o más campos.
 
+## Validaciones condicionadas
+
+* Son aquellas que cambian dinámicamente respecto a los cambios que haga el usuario en el formulario.
+* Esto se realiza en tiempo de ejecución de acuerdo a los cambios que realiza el usuario en la interfaz.
+
