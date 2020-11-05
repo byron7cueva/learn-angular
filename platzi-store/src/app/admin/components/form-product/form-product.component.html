@@ -7,16 +7,12 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Id" matInput type="text" formControlName="id" />
+                        <input placeholder="Name" matInput type="text" formControlName="name" />
                     </mat-form-field>
-                </div>
-            </div>
-        
-            <div class="row">
-                <div class="col-xs">
-                    <mat-form-field>
-                        <input placeholder="Title" matInput type="text" formControlName="title" />
-                    </mat-form-field>
+                    <div *ngIf="nameFieldInvalid">
+                        <p *ngIf="nameField.hasError('required')">Este campo es requerido</p>
+                        <p *ngIf="priceField.hasError('minlenght')">El nombre debe ser de por lo menos 4 letras</p>
+                    </div>
                 </div>
             </div>
         
@@ -38,14 +34,28 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <textarea placeholder="Description" matInput type="text" formControlName="description"></textarea>
+                      <textarea placeholder="Description" matInput type="text" formControlName="description"></textarea>
                     </mat-form-field>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-xs">
                     <img *ngIf="(image$ | async) as image" [src]="image" />
                     <input type="file" (change)="uploadFile($event)" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                      <mat-label>Categories</mat-label>
+                      <mat-select formControlName="category_id">
+                        <mat-option [value]="category._id" *ngFor="let category of categories">
+                            {{ category.name }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
                 </div>
             </div>
         </mat-card-content>

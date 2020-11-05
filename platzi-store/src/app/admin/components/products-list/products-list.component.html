@@ -21,7 +21,7 @@
             <!--
                 Cuanso se desea enviar parametros se debe utilizar el router link como un array
             -->
-            <a mat-raised-button [routerLink]="['edit',product.id]">Editar</a>
+            <a mat-raised-button [routerLink]="['edit',product._id]">Editar</a>
             <button mat-raised-button color="warn" (click)="deleteProduct(product.id)">Eliminar</button>
         </td>
     </ng-container>

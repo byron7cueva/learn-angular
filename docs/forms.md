@@ -87,3 +87,18 @@ Angular ofrece dos formas para manejar formularios
 
 * Angular no nos ofrece un componente para inputs de tipo file.
 
+## Validaciones asincrónicas
+
+* De esta manera se puede validar con una fuente de datos externa, para poder validar.
+* A medida que el usuario teclea se puede realizar una validación.
+
+## PatchValue
+
+* Estrategias avanzadas y optimización de formularios.
+
+## Smart and Dumb
+
+* Es un patrón importante a la hora de dividir responsabilidades y no acaparar un componente de muchas opciones.
+* Smart (containers): Se encarga de todas las operaciones de manipulación de información, se debe crear del get, create, update y delete.
+* Dumb (components): Solo funciona como un componente de presentación y validación de datos.
+

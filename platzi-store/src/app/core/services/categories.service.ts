@@ -17,6 +17,10 @@ export class CategoriesService {
     return this.httpClient.get<Category[]>(`${environment.url_api}/categories`);
   }
 
+  getCategory(id: string) {
+    return this.httpClient.get<Category>(`${environment.url_api}/categories/${id}`);
+  }
+
   createCategory(data: Partial<Category>) {
     return this.httpClient.post<Category>(`${environment.url_api}/categories`, data);
   }
@@ -27,5 +31,9 @@ export class CategoriesService {
 
   deleteCategory(id: string) {
     return this.httpClient.delete(`${environment.url_api}/categories/${id}`);
+  }
+
+  checkCategory(name: string) {
+    return this.httpClient.post(`${environment.url_api}/categories/availability`, {name});
   }
 }

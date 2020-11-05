@@ -1,4 +1,7 @@
 import { AbstractControl } from '@angular/forms';
+import { map } from 'rxjs/operators';
+
+import { CategoriesService } from '@core/services/categories.service';
 
 // En una validación si no hay ningun error debería retornar un null
 // SI tiene el error se debe devolver un objeto con el nombre del error
@@ -49,6 +52,23 @@ export class MyValidators {
       }
 
       return null;
+    };
+  }
+
+  static validateCategory(service: CategoriesService) {
+    return (control: AbstractControl) => {
+      const value = control.value;
+      return service.checkCategory(value)
+      .pipe(
+        map((response: any) => {
+          const isAvailable = response.isAvailable;
+          console.log(response);
+          if (!isAvailable) {
+            return {not_available: true};
+          }
+          return null;
+        })
+      );
     };
   }
 }

@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { CategoriesComponent } from './components/categories/categories.component';
-import { CategoryFormComponent } from './components/category-form/category-form.component';
+import { CategoryComponent } from './containers/category/category.component';
 
 const routes: Routes = [
   {
@@ -11,11 +11,11 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    component: CategoryFormComponent
+    component: CategoryComponent
   },
   {
     path: 'edit/:id',
-    component: CategoryFormComponent
+    component: CategoryComponent
   }
 ];
 

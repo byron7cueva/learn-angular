@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 import { ProductsService } from '@core/services/products.service';
+import { CategoriesService } from '@core/services/categories.service';
+import { Category } from '@core/models/category.model';
 import { MyValidators } from '@utils/validators';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -17,12 +19,14 @@ export class FormProductComponent implements OnInit {
 
   form: FormGroup;
   image$: Observable<any>;
+  categories: Category[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private productsService: ProductsService,
     private router: Router,
-    private afs: AngularFireStorage
+    private afs: AngularFireStorage,
+    private categoriesService: CategoriesService
   ) {
     // Se debe llamar desde aca porque se utiliza para construir el formulario
     this.buildForm();
@@ -32,18 +36,34 @@ export class FormProductComponent implements OnInit {
     return this.form.get('price');
   }
 
+  get nameField() {
+    return this.form.get('name');
+  }
+
+  get nameFieldInvalid() {
+    return this.nameField.touched && this.nameField.invalid;
+  }
+
   ngOnInit(): void {
+    this.getCategories();
   }
 
   private buildForm() {
     // Permite crear un grupo de componentes a traves de una configuracion
     this.form = this.formBuilder.group({
       // [estado_inicial, [validaciones]]
-      id: ['', [Validators.required]],
-      title: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(4)]],
       price: [0, [Validators.required, MyValidators.isPriceValid]],
-      image: '',
-      description: ['', [Validators.required]]
+      image: ['', Validators.required],
+      category_id: ['', Validators.required],
+      description: ['', [Validators.required, Validators.minLength(10)]]
+    });
+  }
+
+  private getCategories() {
+    this.categoriesService.getAllCategories()
+    .subscribe((categories) => {
+      this.categories = categories;
     });
   }
 
