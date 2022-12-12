@@ -32,7 +32,7 @@
     "@nguniversal/express-engine": "^9.1.1",
     "@sentry/browser": "^5.15.5",
     "date-fns": "^2.14.0",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "firebase": "^7.14.6",
     "flexboxgrid": "^6.3.1",
     "ngx-quicklink": "^0.2.3",
